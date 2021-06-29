@@ -30,17 +30,17 @@ public class CarList {
 		Brand brand = null;
 		while ((details = bf.readLine()) != null) {
 				boolean checkAdding = true;
-				StringTokenizer stk = new StringTokenizer(details);
-				String carID = stk.nextToken(",").trim();
-				String  brandID= stk.nextToken(",").trim();
+				StringTokenizer stk = new StringTokenizer(details,",");
+				String carID = stk.nextToken().trim();
+				String  brandID= stk.nextToken().trim();
 				int index =this.brandList.searchID(brandID);
 				if (index != -1) brand = this.brandList.getBrandByIndex(index);
 				else {
 					checkAdding = false;
 					brand = new Brand();
 				}
-				String color = stk.nextToken(",").trim();
-				String frameID = stk.nextToken(",").trim();
+				String color = stk.nextToken().trim();
+				String frameID = stk.nextToken().trim();
 				String engineID = stk.nextToken().trim();
 				Car e = new Car(carID, brand, color, frameID, engineID);
 				if (checkAdding) this.list.add(e);
@@ -60,10 +60,10 @@ public class CarList {
 		int n = this.list.size();
 		for (int i = 0; i < n - 1; i++) {
 			for (int j = 0; j < n-i-1; j++) {
-				if (this.list.get(i).comparedTo(this.list.get(j))== 1) {
-					Car temp = this.list.get(i);
-					this.list.set(i, this.list.get(j));
-					this.list.set(j, temp);
+				if (this.list.get(j).comparedTo(this.list.get(j+1))== 1) {
+					Car temp = this.list.get(j);
+					this.list.set(j, this.list.get(j+1));
+					this.list.set(j+1, temp);
 				}
 			}
 		}

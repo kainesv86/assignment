@@ -36,8 +36,8 @@ public class BrandList {
 		while ((details = bf.readLine()) != null) {
 				StringTokenizer stk = new StringTokenizer(details);
 				String brandID = stk.nextToken(",").trim();
-				String  brandName= stk.nextToken(",").trim();
-				String  soundBrand= stk.nextToken(":").trim();
+				String brandName= stk.nextToken(",").trim();
+				String soundBrand= stk.nextToken(":").trim();
 				soundBrand = soundBrand.substring(2);
 				double price = Double.parseDouble((stk.nextToken()));
 //				System.out.println("===========================");
