@@ -155,7 +155,7 @@ public class BrandList {
 	}
 
 	public void printBrandByIndex(int index) {
-		if (index != 1) {
+		if (index != -1) {
 			System.out.println("Found: " + this.list.get(index).toString());
 			return;
 		}
